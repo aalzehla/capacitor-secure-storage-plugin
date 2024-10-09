@@ -16,19 +16,20 @@
 </p>
 
 Capacitor plugin for storing string values securly on iOS and Android.
+Forked from @evva-sfw/capacitor-secure-storage-plugin
 
 ## How to install
 
 ### Capacitor 6
 
 ```
-npm install @evva-sfw/capacitor-secure-storage-plugin
+npm install @aalzehla/capacitor-secure-storage-plugin
 ```
 
 ### Capacitor 5
 
 ```
-npm install @evva-sfw/capacitor-secure-storage-plugin@1.0.2
+npm install @aalzehla/capacitor-secure-storage-plugin@1.0.2
 ```
 
 ### Older versions
@@ -43,7 +44,7 @@ For version lower than 5 please refer to https://github.com/martinkasa/capacitor
 ## Usage
 
 ```typescript
-import { SecureStoragePlugin } from '@evva-sfw/capacitor-secure-storage-plugin';
+import { SecureStoragePlugin } from '@aalzehla/capacitor-secure-storage-plugin';
 ```
 
 ## Methods

@@ -1,18 +1,18 @@
 package com.aalzehla.capacitor_secure_storage;
 
-public class PreferencesConfiguration implements Cloneable {
+public class SecureStorageConfiguration implements Cloneable {
 
-  static final PreferencesConfiguration DEFAULTS;
+  static final SecureStorageConfiguration DEFAULTS;
 
   static {
-    DEFAULTS = new PreferencesConfiguration();
+    DEFAULTS = new SecureStorageConfiguration();
     DEFAULTS.group = "MPayStorage";
   }
 
   String group;
 
   @Override
-  public PreferencesConfiguration clone() throws CloneNotSupportedException {
-    return (PreferencesConfiguration) super.clone();
+  public SecureStorageConfiguration clone() throws CloneNotSupportedException {
+    return (SecureStorageConfiguration) super.clone();
   }
 }
