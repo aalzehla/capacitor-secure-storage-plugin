@@ -8,14 +8,15 @@ export class SecureStoragePluginWeb
 
   get(options: { key: string }): Promise<{ value: string }> {
     const value = localStorage.getItem(this.addPrefix(options.key));
-    return value !== null
-      ? Promise.resolve({
-          value: atob(value),
-        })
-      : Promise.reject('Item with given key does not exist');
+    if(value === null){
+      return Promise.reject('Item with given key does not exist');
+    }
+    return Promise.resolve({
+      value: value,
+    });
   }
   set(options: { key: string; value: string }): Promise<{ value: boolean }> {
-    localStorage.setItem(this.addPrefix(options.key), btoa(options.value));
+    localStorage.setItem(this.addPrefix(options.key), options.value);
     return Promise.resolve({ value: true });
   }
   remove(options: { key: string }): Promise<{ value: boolean }> {
@@ -46,5 +47,5 @@ export class SecureStoragePluginWeb
   }
 
   private addPrefix = (key: string) => this.PREFIX + key;
-  private removePrefix = (key: string) => key.replace(this.PREFIX, '');
+  private removePrefix = (key: string) => key.slice(this.PREFIX.length);//.replace(this.PREFIX, '');
 }

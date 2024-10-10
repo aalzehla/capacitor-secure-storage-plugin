@@ -1,6 +1,6 @@
 {
-  "name": "capacitor-secure-storage-plugin",
-  "version": "0.10.0",
+  "name": "@aalzehla/capacitor-secure-storage-plugin",
+  "version": "1.0.3",
   "description": "Securely store secrets such as usernames, passwords, tokens, certificates or other sensitive information (strings) on iOS & Android",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -11,16 +11,16 @@
     "android/build.gradle",
     "dist/",
     "ios/Plugin/",
-    "CapacitorSecureStoragePlugin.podspec"
+    "AalzehlaCapacitorSecureStoragePlugin.podspec"
   ],
-  "author": "martinkasa",
+  "author": "Ateik Alzehla",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/martinkasa/capacitor-secure-storage-plugin.git"
+    "url": "https://github.com/aalzehla/capacitor-secure-storage-plugin.git"
   },
   "bugs": {
-    "url": "https://github.com/martinkasa/capacitor-secure-storage-plugin.git/issues"
+    "url": "https://github.com/aalzehla/capacitor-secure-storage-plugin.git/issues"
   },
   "keywords": [
     "capacitor",

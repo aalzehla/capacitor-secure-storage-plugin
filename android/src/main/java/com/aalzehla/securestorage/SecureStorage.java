@@ -1,4 +1,4 @@
-package com.aalzehla.capacitor_secure_storage;
+package com.aalzehla.securestorage;
 
 import android.app.Activity;
 import android.content.Context;

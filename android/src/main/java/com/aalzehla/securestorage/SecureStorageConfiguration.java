@@ -1,4 +1,4 @@
-package com.aalzehla.capacitor_secure_storage;
+package com.aalzehla.securestorage;
 
 public class SecureStorageConfiguration implements Cloneable {
 

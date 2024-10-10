@@ -2,6 +2,8 @@
 
 Capacitor plugin for storing string values securly on iOS and Android.
 
+Uses EncryptedSharedPreferences insteed for PasswordStorageHelper presented by martinkasa.
+
 ## How to install
 
 For Capacitor v6

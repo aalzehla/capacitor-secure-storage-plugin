@@ -1,4 +1,4 @@
-package com.aalzehla.capacitor_secure_storage;
+package com.aalzehla.securestorage;
 
 import com.getcapacitor.JSArray;
 import com.getcapacitor.JSObject;
@@ -83,7 +83,12 @@ public class SecureStoragePlugin extends Plugin {
     preferences.clear();
     call.resolve();
   }
-
+  @PluginMethod
+  public void getPlatform(PluginCall call) {
+    JSObject ret = new JSObject();
+    ret.put("value", "android");
+    call.resolve(ret);
+  }
   @PluginMethod
   public void migrate(PluginCall call) {
     List<String> migrated = new ArrayList<>();
