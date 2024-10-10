@@ -7,15 +7,26 @@ export class SecureStoragePluginWeb extends WebPlugin implements SecureStoragePl
 
   async get(options: { key: string }): Promise<{ value: string }> {
     const value = localStorage.getItem(this.addPrefix(options.key));
-    return value !== null
-      ? {
+    if(value) {
+      if(process.env.NODE_ENV==='production'){
+        return {
           value: atob(value),
-        }
-      : await Promise.reject(new Error("Item with given key does not exist"));
+        };
+      }else {
+        return {
+          value: value,
+        };
+      }
+    }
+    return await Promise.reject(new Error("Item with given key does not exist"))
   }
 
   async set(options: { key: string; value: string }): Promise<{ value: boolean }> {
-    localStorage.setItem(this.addPrefix(options.key), btoa(options.value));
+    if(process.env.NODE_ENV==='production'){
+      localStorage.setItem(this.addPrefix(options.key), btoa(options.value));
+    }else {
+      localStorage.setItem(this.addPrefix(options.key), options.value);
+    }
     return { value: true };
   }
 

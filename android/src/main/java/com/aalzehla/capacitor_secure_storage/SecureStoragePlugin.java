@@ -14,11 +14,11 @@ import org.json.JSONException;
 @CapacitorPlugin(name = "SecureStoragePlugin")
 public class SecureStoragePlugin extends Plugin {
 
-  private Preferences preferences;
+  private SecureStorage preferences;
 
   @Override
   public void load() {
-    preferences = new Preferences(getContext(), PreferencesConfiguration.DEFAULTS);
+    preferences = new SecureStorage(getContext(), SecureStorageConfiguration.DEFAULTS);
   }
 
   @PluginMethod
@@ -88,7 +88,7 @@ public class SecureStoragePlugin extends Plugin {
   public void migrate(PluginCall call) {
     List<String> migrated = new ArrayList<>();
     List<String> existing = new ArrayList<>();
-    Preferences oldPreferences = new Preferences(getContext(), PreferencesConfiguration.DEFAULTS);
+    SecureStorage oldPreferences = new SecureStorage(getContext(), SecureStorageConfiguration.DEFAULTS);
 
     for (String key : oldPreferences.keys()) {
       String value = oldPreferences.get(key);
