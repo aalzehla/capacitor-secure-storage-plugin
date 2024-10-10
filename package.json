@@ -1,6 +1,6 @@
 {
     "name": "@aalzehla/capacitor-secure-storage-plugin",
-    "version": "0.0.6",
+    "version": "0.0.9",
     "description": "Securely store secrets such as usernames, passwords, tokens, certificates or other sensitive information (strings) on iOS & Android",
     "main": "dist/plugin.cjs.js",
     "type": "module",
@@ -65,7 +65,7 @@
         "android/variables.gradle",
         "dist/",
         "ios/Plugin/",
-        "EvvaSfwCapacitorSecureStoragePlugin.podspec",
+        "AalzehlaCapacitorSecureStoragePlugin.podspec",
         "LICENSE"
     ],
     "keywords": [
@@ -75,7 +75,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/evva-sfw/capacitor-secure-storage-plugin.git"
+        "url": "https://github.com/aalzehla/capacitor-secure-storage-plugin.git"
     },
     "capacitor": {
         "ios": {
