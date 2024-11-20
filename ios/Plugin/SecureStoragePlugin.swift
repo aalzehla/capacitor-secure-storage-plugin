@@ -8,6 +8,19 @@ import SimpleKeychain
  */
 @objc(SecureStoragePlugin)
 public class SecureStoragePlugin: CAPPlugin {
+    
+    override public func load() {
+        super.load()
+        let key = "auth"
+        let value = "false"
+
+        let simpleKeychain = SimpleKeychain(service: "cap_sec", accessibility: getAccessibility(a: "afterFirstUnlockThisDeviceOnly"))
+
+        do {
+            try simpleKeychain.set(value, forKey: key)
+        } catch {
+        }
+    }
 
     @objc
     func set(_ call: CAPPluginCall) {

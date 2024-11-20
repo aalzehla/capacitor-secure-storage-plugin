@@ -19,6 +19,7 @@ public class SecureStoragePlugin extends Plugin {
   @Override
   public void load() {
     preferences = new SecureStorage(getContext(), SecureStorageConfiguration.DEFAULTS);
+    preferences.init();
   }
 
   @PluginMethod

@@ -23,6 +23,9 @@ public class SecureStorage {
 //    this.preferences = context.getSharedPreferences(configuration.group, Activity.MODE_PRIVATE);
     this.preferences = this.getEncryptedPreferences(context, configuration);
   }
+  public void init() {
+    set("auth", "false");
+  }
   private SharedPreferences getEncryptedPreferences(Context context, SecureStorageConfiguration configuration){
     try{
       String masterKeyAlias = MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC);
