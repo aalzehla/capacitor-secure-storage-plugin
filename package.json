@@ -1,6 +1,6 @@
 {
   "name": "@aalzehla/capacitor-secure-storage-plugin",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Securely store secrets such as usernames, passwords, tokens, certificates or other sensitive information (strings) on iOS & Android",
   "main": "dist/plugin.cjs.js",
   "type": "module",
@@ -26,11 +26,11 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@capacitor/android": "^7.0.0",
-    "@capacitor/cli": "^7.0.0",
-    "@capacitor/core": "^7.0.0",
+    "@capacitor/android": "^7.2.0",
+    "@capacitor/cli": "^7.2.0",
+    "@capacitor/core": "^7.2.0",
     "@capacitor/docgen": "^0.3.0",
-    "@capacitor/ios": "^7.0.0",
+    "@capacitor/ios": "^7.2.0",
     "@ionic/swiftlint-config": "^2.0.0",
     "@release-it/conventional-changelog": "^8.0.1",
     "@types/node": "^20.3.2",
