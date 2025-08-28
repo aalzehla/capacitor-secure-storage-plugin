@@ -9,7 +9,12 @@ import androidx.security.crypto.MasterKeys;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
+import java.util.Map;
 
 public class SecureStorage {
 
@@ -46,6 +51,15 @@ public class SecureStorage {
     return preferences.getString(key, null);
   }
 
+  public Map<String, String> getValues(List<String> keys) {
+    Map<String, String> resultMap = new HashMap<>();
+    for (String key : keys) {
+      String value = preferences.getString(key, "");
+      resultMap.put(key, value);
+    }
+    return resultMap;
+  }
+
   public void set(String key, String value) {
     executeOperation(editor -> editor.putString(key, value));
   }
@@ -56,6 +70,10 @@ public class SecureStorage {
 
   public Set<String> keys() {
     return preferences.getAll().keySet();
+  }
+
+  public Map<String, ?> getAll() {
+    return preferences.getAll();
   }
 
   public void clear() {

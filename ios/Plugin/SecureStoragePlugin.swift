@@ -59,6 +59,61 @@ public class SecureStoragePlugin: CAPPlugin {
     }
 
     @objc
+    func getValues(_ call: CAPPluginCall) {
+        guard let keys = call.getArray("keys", String.self) else {
+            call.reject("Missing keys array")
+            return
+        }
+        let accessibility = self.getAccessibility(a: call.getValue("accessibility") as? String)
+
+        let simpleKeychain = SimpleKeychain(service: "cap_sec", accessibility: accessibility)
+        
+        var result: [String: String] = [:]
+        
+        for key in keys {
+            if let hasItem = try? simpleKeychain.hasItem(forKey: key), hasItem {
+                let value = try? simpleKeychain.string(forKey: key)
+                if let val = value, val != "" {
+                    result[key] = value
+                } else {
+                     result[key] = "" 
+                }
+            } else {
+                 result[key] = nil
+            }
+        }
+        call.resolve(result)
+    }
+
+    @objc
+    func getAll(_ call: CAPPluginCall) {
+        let accessibility = self.getAccessibility(a: call.getValue("accessibility") as? String)
+
+        let simpleKeychain = SimpleKeychain(service: "cap_sec", accessibility: accessibility)
+
+        if let keys = try? simpleKeychain.keys() {
+            var result: [String: String] = [:]
+
+        
+            for key in keys {
+                if let hasItem = try? simpleKeychain.hasItem(forKey: key), hasItem {
+                    let value = try? simpleKeychain.string(forKey: key)
+                    if let val = value, val != "" {
+                        result[key] = value
+                    } else {
+                        result[key] = "" 
+                    }
+                } else {
+                    result[key] = nil
+                }
+            }
+            call.resolve(result)
+        } else {
+            call.reject("Error loading keys")
+        }
+    }
+
+    @objc
     func keys(_ call: CAPPluginCall) {
         let accessibility = self.getAccessibility(a: call.getValue("accessibility") as? String)
 

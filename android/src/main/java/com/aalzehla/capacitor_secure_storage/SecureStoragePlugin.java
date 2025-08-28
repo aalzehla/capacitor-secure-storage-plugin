@@ -7,7 +7,9 @@ import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import org.json.JSONException;
 
@@ -35,6 +37,41 @@ public class SecureStoragePlugin extends Plugin {
     JSObject ret = new JSObject();
     ret.put("value", value == null ? JSObject.NULL : value);
     call.resolve(ret);
+  }
+
+  @PluginMethod
+  public void getValues(PluginCall call) {
+    // Get the keys array from JS
+    List<String> keys = null;
+    try {
+      keys = Arrays.asList(call.getArray("keys").toList().toArray(new String[0]));
+    } catch (JSONException e) {
+      throw new RuntimeException(e);
+    }
+
+    // Get map from SharedPreferences
+    Map<String, String> valuesMap = preferences.getValues(keys);
+
+    // Convert map to JSObject
+    JSObject result = new JSObject();
+    for (Map.Entry<String, String> entry : valuesMap.entrySet()) {
+        result.put(entry.getKey(), entry.getValue());
+    }
+
+    // Send result back to JS
+    call.resolve(result);
+  }
+
+  @PluginMethod
+  public void getAll(PluginCall call) {
+
+    Map<String, ?> value = preferences.getAll();
+
+    JSObject result = new JSObject();
+    for (Map.Entry<String, ?> entry : value.entrySet()) {
+        result.put(entry.getKey(), entry.getValue());
+    }
+    call.resolve(result);
   }
 
   @PluginMethod
