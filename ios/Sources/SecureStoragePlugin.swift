@@ -1,13 +1,25 @@
 import Capacitor
 import Foundation
-import SimpleKeychain
+import simpleKeychain
 
 /**
  * Please read the Capacitor iOS Plugin Development Guide
  * here: https://capacitor.ionicframework.com/docs/plugins/ios
  */
 @objc(SecureStoragePlugin)
-public class SecureStoragePlugin: CAPPlugin {
+public class SecureStoragePlugin: CAPPlugin, CAPBridgedPlugin {
+    public let identifier = "SecureStoragePlugin" 
+    public let jsName = "SecureStoragePlugin" 
+    public let pluginMethods: [CAPPluginMethod] = [
+        CAPPluginMethod(name: "set", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "get", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "getAll", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "getValues", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "keys", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "remove", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "clear", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "getPlatform", returnType: CAPPluginReturnPromise),
+    ] 
     
     override public func load() {
         super.load()
