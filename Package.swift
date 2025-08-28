@@ -17,7 +17,6 @@ let package = Package(
             name: "SecureStoragePlugin",
             dependencies: [
                 .product(name: "Capacitor", package: "capacitor-swift-pm"),
-                .product(name: "SimpleKeychain", package: "capacitor-swift-pm"),
                 .product(name: "Cordova", package: "capacitor-swift-pm")
             ],
             path: "ios/Sources/SecureStoragePlugin"),

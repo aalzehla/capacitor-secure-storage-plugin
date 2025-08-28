@@ -1,6 +1,6 @@
 import Capacitor
 import Foundation
-import simpleKeychain
+import SimpleKeychain
 
 /**
  * Please read the Capacitor iOS Plugin Development Guide
